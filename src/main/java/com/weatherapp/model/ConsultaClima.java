@@ -1,5 +1,6 @@
 package com.weatherapp.model;
 
+import com.weatherapp.model.user.UserModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
