@@ -34,11 +34,9 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/user/login").permitAll()
 
                         // Animal-related routes
-                        .requestMatchers(HttpMethod.POST, "/animal/register").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.GET, "/animal").hasRole("USER")
-                        .requestMatchers(HttpMethod.GET, "/animal/{id}").hasRole("USER")
-                        .requestMatchers(HttpMethod.PUT, "/animal/{id}").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.PUT, "/animal/adopt/{id}").hasRole("USER")
+                        .requestMatchers(HttpMethod.GET, "/api/clima/{cidade}").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/clima/{latitude}/{longitude}").permitAll()
+
 
                         // User routes
                         .requestMatchers(HttpMethod.GET, "/user").hasRole("ADMIN")

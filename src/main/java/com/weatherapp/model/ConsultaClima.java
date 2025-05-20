@@ -22,6 +22,12 @@ public class ConsultaClima {
     private Double temperatura;
     private String descricao;
     private LocalDateTime dataConsulta;
+    private String longitude;
+    private String latitude;
+    private String temperaturaMin;
+    private String temperaturaMax;
+    private String image;
+    private String umidade;
 
     @ManyToOne
     @JoinColumn(name = "cidade_id")

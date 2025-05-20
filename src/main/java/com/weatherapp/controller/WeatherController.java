@@ -1,5 +1,6 @@
 package com.weatherapp.controller;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.weatherapp.model.ConsultaClima;
 import com.weatherapp.service.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,16 @@ public class WeatherController {
     public ResponseEntity<ConsultaClima> getClima(@PathVariable String cidade) {
         try {
             ConsultaClima clima = weatherService.buscarClimaPorCidade(cidade);
+            return ResponseEntity.ok(clima);
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body(null);
+        }
+    }
+
+    @GetMapping("/{latitude}/{longitude}")
+    public ResponseEntity<ConsultaClima> getClimaLongitudeLatitude(@PathVariable String latitude, @PathVariable String longitude) {
+        try {
+            ConsultaClima clima = weatherService.buscarPorLatitudeLogitude(latitude, longitude);
             return ResponseEntity.ok(clima);
         } catch (Exception e) {
             return ResponseEntity.status(500).body(null);
