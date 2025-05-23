@@ -77,7 +77,7 @@ public class UserServiceImpl implements IUserService {
     @Override
     public ResponseEntity<UserResponseDTO> findByEmail(String email) {
         UserModel user = validateEmail(email);
-        return ResponseEntity.ok(new UserResponseDTO(user.getId(), user.getName(), user.getEmail(), user.getPassword(), user.getPermission()));
+        return ResponseEntity.ok(new UserResponseDTO(user.getId(), user.getName(), user.getEmail(), null, user.getPermission()));
     }
 
     @Override
@@ -87,7 +87,7 @@ public class UserServiceImpl implements IUserService {
 
         List<UserResponseDTO> response = new ArrayList<>();
         for (UserModel user : allUsers)
-            response.add(new UserResponseDTO(user.getId(), user.getName(), user.getEmail(), user.getPassword(), user.getPermission()));
+            response.add(new UserResponseDTO(user.getId(), user.getName(), user.getEmail(), null, user.getPermission()));
 
         return ResponseEntity.ok(response);
     }

@@ -40,7 +40,7 @@ public class SecurityConfig {
 
                         // User routes
                         .requestMatchers(HttpMethod.GET, "/user").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.GET, "/user/{email}").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/user/{email}").permitAll()
                         .requestMatchers(HttpMethod.PATCH, "/user/permission/{email}").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/user/update/{email}").hasRole("USER")
 
